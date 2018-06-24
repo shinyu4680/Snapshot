@@ -36,6 +36,6 @@ extension UIView {
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.fillMode = kCAFillModeRemoved
         
-        self.layer.add(transition, forKey: "slideFromLeftTransition")
+        self.layer.add(transition, forKey: "slideFromRightTransition")
     }
 }

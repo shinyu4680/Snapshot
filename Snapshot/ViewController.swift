@@ -19,13 +19,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var leftSwipeGestureRecongizer: UISwipeGestureRecognizer!
     @IBOutlet var options: [UIButton]!
     
-    
-    
-    
     var swipeCount = 0
     
+    // MARK: set up the navigation bar with darkGray backgroundcolor and white title text
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         navigationController?.navigationBar.barTintColor = UIColor.darkGray
         navigationController?.navigationBar.isTranslucent = false
@@ -43,9 +42,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func snapshot (_ sender: UIBarButtonItem) {
         UIGraphicsBeginImageContextWithOptions(snapshotView.frame.size, true, 0)
         snapshotView.drawHierarchy(in: snapshotView.bounds, afterScreenUpdates: true)
-        
         let shareImage = UIGraphicsGetImageFromCurrentImageContext()
-        //UIImageWriteToSavedPhotosAlbum(shareImage!, nil, nil, nil)
+        
         UIGraphicsEndImageContext()
         
         let activityViewController = UIActivityViewController(activityItems: [shareImage!], applicationActivities: [])
@@ -117,7 +115,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         mainImageView.image = image
         dismiss(animated: true){
             for option in self.options {
-                UIView.animate(withDuration: 0.5) {
+                UIView.animate(withDuration: 0.3) {
                     option.isHidden = !option.isHidden
                     self.view.layoutIfNeeded()
                 }
@@ -127,7 +125,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func cameraBtnPressed(_ sender: Any) {
         for option in options {
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.3) {
                 option.isHidden = !option.isHidden
                 self.view.layoutIfNeeded()
             }
