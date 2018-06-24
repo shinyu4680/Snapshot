@@ -58,7 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.completionWithItemsHandler = { activity, completed, items, error in
             if !completed {
                 // handle task not completed
-                print(error!)
+                print(error ?? "user canceled sharing")
                 return
             }
             let activityText: [String] = (activity?.rawValue.components(separatedBy: "."))!
