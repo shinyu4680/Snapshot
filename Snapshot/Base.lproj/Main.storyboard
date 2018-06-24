@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-kr-cUv">
                                 <rect key="frame" x="37" y="256" width="300" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIFACup" translatesAutoresizingMaskIntoConstraints="NO" id="TdB-4J-oSu">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIFACup" translatesAutoresizingMaskIntoConstraints="NO" id="TdB-4J-oSu">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -171,8 +171,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1-1" width="378" height="110"/>
-        <image name="1-2" width="399" height="109"/>
-        <image name="FIFACup" width="1150" height="1150"/>
+        <image name="1-1" width="126" height="36"/>
+        <image name="1-2" width="133" height="36"/>
+        <image name="FIFACup" width="340" height="340"/>
     </resources>
 </document>

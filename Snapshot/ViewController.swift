@@ -17,7 +17,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var textImageView2: UIImageView!
     @IBOutlet weak var myPageControl: UIPageControl!
     @IBOutlet var leftSwipeGestureRecongizer: UISwipeGestureRecognizer!
+    @IBOutlet weak var mySegmentedControl: UISegmentedControl!
+    
     @IBOutlet var options: [UIButton]!
+    var selectedImages = [UIImage]()
     
     var swipeCount = 0
     
@@ -50,6 +53,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.excludedActivityTypes = [.assignToContact, .addToReadingList, .openInIBooks, .markupAsPDF, .postToVimeo, .postToWeibo, .postToFlickr, .postToTwitter]
         
         self.present(activityViewController, animated: true, completion: nil)
+        
+        // MARK: Activity Controller Completion Handler with Alert
+        activityViewController.completionWithItemsHandler = { activity, completed, items, error in
+            if !completed {
+                // handle task not completed
+                print(error!)
+                return
+            }
+            let activityText: [String] = (activity?.rawValue.components(separatedBy: "."))!
+            let controller = UIAlertController(title: "Successed!", message: "Successfully shared by \"\(activityText[activityText.count - 1])\"", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            controller.addAction(action)
+            self.present(controller, animated: true, completion: nil)
+        }
     }
 
     
@@ -149,6 +166,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    
     
 }
 
